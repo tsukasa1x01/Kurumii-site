@@ -805,17 +805,17 @@ button:hover {
 
 .anime-best-image {
     width: 100%;
-    height: 520px;
+    height: 380px;
     overflow: hidden;
-    margin-bottom: 25px;
 }
 
 .anime-best-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 380px;
+    object-fit: contain;
     display: block;
 }
+
 
 .anime-best .anime-number {
     display: block;
@@ -865,12 +865,12 @@ button:hover {
 
 .anime-card > img {
     width: 100%;
-    height: 380px;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     display: block;
     margin-bottom: 18px;
 }
-
 .anime-number {
     display: block;
     font-size: 0.75rem;
@@ -894,17 +894,19 @@ button:hover {
 .dual-images {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 380px;
-    overflow: hidden;
+    gap: 0;
+    height: auto;
+    overflow: visible;
     margin-bottom: 18px;
 }
 
 .dual-images img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
 }
+
 
 
 /* =========================================
@@ -926,7 +928,7 @@ button:hover {
     }
 
     .anime-best-image {
-        height: 360px;
+        height: auto;
     }
 
     .anime-best h3 {
@@ -943,11 +945,13 @@ button:hover {
     }
 
     .anime-card > img {
-        height: auto;
-        max-height: 500px;
-        object-fit: cover;
-    }
-
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 18px;
+}
     .dual-images {
         height: auto;
     }
@@ -1388,34 +1392,21 @@ button:hover {
 ========================================= */
 
 .zafkiel-clock {
+    width: min(680px, 90vw);
+    aspect-ratio: 1 / 1;
+
+    margin-bottom: 20px;
+
     position: relative;
 
-    width: 180px;
-    height: 180px;
-
-    margin-bottom: 45px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background:
-    radial-gradient(
-        circle at center,
-        rgba(48, 28, 62, 0.95) 0%,
-        rgba(18, 14, 28, 0.97) 58%,
-        rgba(5, 6, 12, 1) 100%
-    );
+        url("images/zafkiel-clock.png")
+        center / contain
+        no-repeat;
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
 
-    box-shadow:
-        0 0 25px rgba(120, 0, 20, 0.25),
-        inset 0 0 25px rgba(0, 0, 0, 0.7);
-
-    box-sizing: border-box;
+    animation: zafkielPulse 3s ease-in-out infinite;
 }
 
 .zafkiel-outer-mechanism {
@@ -1610,12 +1601,12 @@ button:hover {
     position: absolute;
 
     left: 50%;
-    top: 50%;
+    top: 49.86%;
 
     width: 0;
     height: 0;
 
-    z-index: 4;
+    z-index: 10;
 
     pointer-events: none;
 
@@ -1631,25 +1622,23 @@ button:hover {
     height: 0;
 }
 
-.clock-hour img {
+.clock-hour img,
+.clock-minute img {
     position: absolute;
 
-    left: 50%;
-    top: 50%;
+    left: 0;
+    top: 0;
 
-    width: 220px;
+    width: 150px;
     height: auto;
 
     display: block;
 
     transform: translate(-50%, -50%);
+
     transform-origin: center center;
 
     object-fit: contain;
-
-    filter:
-        drop-shadow(0 0 4px rgba(120, 0, 25, 0.45))
-        drop-shadow(0 0 8px rgba(170, 0, 40, 0.18));
 }
 
 /* =========================================
@@ -1690,18 +1679,18 @@ button:hover {
     position: absolute;
 
     left: 50%;
-    top: 50%;
+    top: 49.86%;
 
     width: 1px;
-    height: 68px;
+    height: 145px;
 
     background: currentColor;
 
-    opacity: 0.55;
+    opacity: 0.65;
 
     transform-origin: top center;
 
-    z-index: 4;
+    z-index: 11;
 
     pointer-events: none;
 }
@@ -1762,9 +1751,26 @@ button:hover {
 ========================================= */
 
 .zafkiel-clock {
-    animation: zafkielPulse 3s ease-in-out infinite;
-}
+    position: relative;
 
+    width: 260px;
+    height: 260px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        url("images/zafkiel-clock.png")
+        center / contain
+        no-repeat;
+
+    animation: zafkielPulse 3s ease-in-out infinite;
+
+    z-index: 1;
+}
 @keyframes zafkielPulse {
     0%,
     100% {
@@ -1793,45 +1799,11 @@ button:hover {
 
 
 .zafkiel-clock::after {
-    content: "";
-
-    position: absolute;
-
-    width: 230px;
-    height: 230px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border: 3px solid rgba(170, 0, 40, 0.9);
-
-    pointer-events: none;
-
-    z-index: 0;
+    display: none;
 }
 
 .zafkiel-outer-ring {
-    position: absolute;
-
-    width: 230px;
-    height: 230px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border: 3px solid rgba(170, 0, 40, 0.9);
-
-    pointer-events: none;
-
-    z-index: 0;
+    display: none;
 }
 
 
@@ -2437,5 +2409,41 @@ button:hover {
     }
 }
 
+/* =========================================
+   ZAFKIEL ARTWORK MODE
+========================================= */
+
+.zafkiel-clock::before,
+.zafkiel-clock::after,
+.zafkiel-outer-ring,
+.clock-ring,
+.clock-hour-rays,
+.clock-mark {
+    display: none;
+}
+
+.zafkiel-core {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .zafkiel-clock {
+        width: min(320px, 82vw);
+    }
+
+    .clock-hour img,
+    .clock-minute img {
+        width: 200px;
+    }
+
+    .clock-second {
+        height: 130px;
+    }
+}
 
 
+
+
+.zafkiel-clock {
+    outline: 1px solid red;
+}
