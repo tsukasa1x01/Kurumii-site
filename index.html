@@ -844,12 +844,12 @@
         <div class="song-info">
 
             <div>
-                <h4>ファタール - Fatal</h4>
-                <p>GEMN</p>
+                <h4>メフィスト - Mefisto</h4>
+                <p>女王蜂 (QUEEN BEE)</p>
             </div>
 
             <a
-                href="https://open.spotify.com/track/7gJD9BarjoFwL2BNQ0rpWT"
+                href="https://open.spotify.com/track/45LUKiex0D78VuhP3Oz6mG"
                 target="_blank"
                 class="spotify-button">
                 LISTEN ON SPOTIFY
@@ -1024,13 +1024,29 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
         "music/track-01.mp3",
         "music/track-02.mp3",
         "music/track-03.mp3",
-        "music/track-04.mp3"
+        "music/track-04.mp3",
+        "music/track-05.mp3",
+        "music/track-06.mp3",
+        "music/track-07.mp3",
+        "music/track-08.mp3",
+        "music/track-09.mp3",
+        "music/track-10.mp3"
     ];
 
     let currentTrack = -1;
     let musicEnabled = true;
+    let userHasInteracted = false;
+
+
+    // =========================================
+    // PLAY RANDOM TRACK
+    // =========================================
 
     function playRandomTrack() {
+
+        if (!tracks.length) {
+            return;
+        }
 
         let nextTrack;
 
@@ -1045,22 +1061,29 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 
         music.src = tracks[currentTrack];
 
-       music.play().then(() => {
+        music.play().then(() => {
 
-    musicDisc.play();
+            musicDisc.play();
 
-    musicEnabled = true;
-    updateMusicButton();
+            musicEnabled = true;
 
-}).catch(() => {
+            updateMusicButton();
 
-    console.log("Autoplay was blocked by the browser.");
+        }).catch(() => {
 
-    musicEnabled = false;
-    updateMusicButton();
+            console.log("Playback was blocked by the browser.");
 
-});
+            musicEnabled = false;
+
+            updateMusicButton();
+
+        });
     }
+
+
+    // =========================================
+    // NEXT TRACK WHEN CURRENT TRACK ENDS
+    // =========================================
 
     music.addEventListener("ended", () => {
 
@@ -1070,76 +1093,122 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 
     });
 
-    musicToggle.addEventListener("click", () => {
+
+    // =========================================
+    // MUSIC TOGGLE
+    // =========================================
+
+    musicToggle.addEventListener("click", (event) => {
+
+        event.stopPropagation();
 
         if (music.paused) {
 
-    musicEnabled = true;
+            musicEnabled = true;
 
-    music.play().then(() => {
+            music.play().then(() => {
 
-        musicDisc.play();
+                musicDisc.play();
 
-    }).catch(() => {
+                updateMusicButton();
 
-        console.log("Playback could not start.");
+            }).catch(() => {
+
+                console.log("Playback could not start.");
+
+                musicEnabled = false;
+
+                updateMusicButton();
+
+            });
+
+        } else {
+
+            musicEnabled = false;
+
+            music.pause();
+
+            musicDisc.pause();
+
+            updateMusicButton();
+
+        }
 
     });
 
-} else {
 
-    musicEnabled = false;
+    // =========================================
+    // UPDATE MUSIC BUTTON
+    // =========================================
 
-    music.pause();
-    musicDisc.pause();
+    function updateMusicButton() {
 
-}
+        if (musicEnabled && !music.paused) {
 
-updateMusicButton();
+            musicToggle.setAttribute(
+                "aria-label",
+                "Turn background music off"
+            );
 
-    });
-function updateMusicButton() {
+        } else {
 
-    if (musicEnabled && !music.paused) {
-        musicToggle.setAttribute(
-            "aria-label",
-            "Turn background music off"
-        );
-    } else {
-        musicToggle.setAttribute(
-            "aria-label",
-            "Turn background music on"
-        );
+            musicToggle.setAttribute(
+                "aria-label",
+                "Turn background music on"
+            );
+
+        }
+
     }
 
-}
+
+    // =========================================
+    // INITIAL AUTOPLAY ATTEMPT
+    // =========================================
 
     playRandomTrack();
 
-    let userHasInteracted = false;
 
-function startMusicAfterInteraction(event) {
+    // =========================================
+    // FIRST USER INTERACTION FALLBACK
+    // =========================================
 
-    if (userHasInteracted || !music.paused) {
-        return;
+    function startMusicAfterInteraction(event) {
+
+        if (userHasInteracted) {
+            return;
+        }
+
+        // Don't interfere with the music toggle.
+        if (event.target.closest("#music-toggle")) {
+            return;
+        }
+
+        userHasInteracted = true;
+
+        // Autoplay already succeeded.
+        if (!music.paused) {
+            return;
+        }
+
+        musicEnabled = true;
+
+        playRandomTrack();
+
     }
 
-    // Let the music toggle handle itself
-    if (event.target.closest("#music-toggle")) {
-        return;
-    }
 
-    userHasInteracted = true;
-    musicEnabled = true;
+    document.addEventListener(
+        "click",
+        startMusicAfterInteraction
+    );
 
-    playRandomTrack();
-}
 
-document.addEventListener(
-    "click",
-    startMusicAfterInteraction,
-    { once: true }
-);
+    // =========================================
+    // INITIAL BUTTON STATE
+    // =========================================
+
+    updateMusicButton();
 
 </script>
 
