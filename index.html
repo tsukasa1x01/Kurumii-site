@@ -20,6 +20,19 @@
         <a href="#games">GAMES</a>
         <a href="#socials">SOCIALS</a>
         <a href="#projects">PROJECTS</a>
+<button id="music-toggle" type="button" aria-label="Toggle background music">
+
+    <video
+        id="music-disc"
+        muted
+        playsinline
+        loop
+        preload="auto"
+    >
+        <source src="music/music-disc.webm" type="video/webm">
+    </video>
+
+</button>
     </div>
 
 </nav>
@@ -28,7 +41,7 @@
 
     <main class="hero">
 
-        
+        <!-- ZAFKIEL CLOCK — DEFERRED FOR FUTURE DEVELOPMENT
 <div class="zafkiel-clock" aria-label="Kurumii clock">
     <div class="zafkiel-outer-mechanism">
         <span class="zafkiel-accent accent-12"></span>
@@ -76,7 +89,7 @@
     <div class="clock-center"></div>
 </div>
 
-
+-->
 
         <h1>KURUMII</h1>
 
@@ -895,6 +908,11 @@
 
 </section>
 
+
+
+
+<audio id="background-music" preload="auto"></audio>
+
 <script>
 const characterEntries = document.querySelectorAll('.character-entry');
 
@@ -919,9 +937,12 @@ characterEntries.forEach((character) => {
 
 
 <script>
-/* =========================================
-   ZAFKIEL CLOCK — REAL TIME
-========================================= */
+
+/*
+=========================================
+ZAFKIEL CLOCK — DEFERRED
+Kept for future development.
+=========================================
 
 const hourHand = document.querySelector('.clock-hour');
 const minuteHand = document.querySelector('.clock-minute');
@@ -944,14 +965,11 @@ function updateZafkielClock() {
     const hourAngle =
         (hours + minutes / 60) * 30;
 
-        console.log("Zafkiel hour:", hours, minutes, "angle:", hourAngle);
-
-    
     hourHand.style.transform =
-    `translateX(-50%) rotate(${hourAngle + 90}deg)`;
+        `translateX(-50%) rotate(${hourAngle + 90}deg)`;
 
     minuteHand.style.transform =
-    `translateX(-50%) rotate(${minuteAngle + 270}deg)`; 
+        `translateX(-50%) rotate(${minuteAngle + 270}deg)`;
 
     secondHand.style.transform =
         `translateX(-50%) rotate(${secondAngle}deg)`;
@@ -960,6 +978,9 @@ function updateZafkielClock() {
 }
 
 updateZafkielClock();
+
+*/
+
 </script>
 
 
@@ -989,7 +1010,138 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 })
 </script>
 
+<script>
 
+    // =========================================
+    // BACKGROUND MUSIC — v0.6
+    // =========================================
+
+    const music = document.getElementById("background-music");
+    const musicToggle = document.getElementById("music-toggle");
+    const musicDisc = document.getElementById("music-disc");
+
+    const tracks = [
+        "music/track-01.mp3",
+        "music/track-02.mp3",
+        "music/track-03.mp3",
+        "music/track-04.mp3"
+    ];
+
+    let currentTrack = -1;
+    let musicEnabled = true;
+
+    function playRandomTrack() {
+
+        let nextTrack;
+
+        do {
+            nextTrack = Math.floor(Math.random() * tracks.length);
+        } while (
+            tracks.length > 1 &&
+            nextTrack === currentTrack
+        );
+
+        currentTrack = nextTrack;
+
+        music.src = tracks[currentTrack];
+
+       music.play().then(() => {
+
+    musicDisc.play();
+
+    musicEnabled = true;
+    updateMusicButton();
+
+}).catch(() => {
+
+    console.log("Autoplay was blocked by the browser.");
+
+    musicEnabled = false;
+    updateMusicButton();
+
+});
+    }
+
+    music.addEventListener("ended", () => {
+
+        if (musicEnabled) {
+            playRandomTrack();
+        }
+
+    });
+
+    musicToggle.addEventListener("click", () => {
+
+        if (music.paused) {
+
+    musicEnabled = true;
+
+    music.play().then(() => {
+
+        musicDisc.play();
+
+    }).catch(() => {
+
+        console.log("Playback could not start.");
+
+    });
+
+} else {
+
+    musicEnabled = false;
+
+    music.pause();
+    musicDisc.pause();
+
+}
+
+updateMusicButton();
+
+    });
+function updateMusicButton() {
+
+    if (musicEnabled && !music.paused) {
+        musicToggle.setAttribute(
+            "aria-label",
+            "Turn background music off"
+        );
+    } else {
+        musicToggle.setAttribute(
+            "aria-label",
+            "Turn background music on"
+        );
+    }
+
+}
+
+    playRandomTrack();
+
+    let userHasInteracted = false;
+
+function startMusicAfterInteraction(event) {
+
+    if (userHasInteracted || !music.paused) {
+        return;
+    }
+
+    // Let the music toggle handle itself
+    if (event.target.closest("#music-toggle")) {
+        return;
+    }
+
+    userHasInteracted = true;
+    musicEnabled = true;
+
+    playRandomTrack();
+}
+
+document.addEventListener(
+    "click",
+    startMusicAfterInteraction,
+    { once: true }
+);
+
+</script>
 
 </body>
 </html>    

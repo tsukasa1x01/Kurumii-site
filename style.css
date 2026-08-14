@@ -387,6 +387,52 @@ button:hover {
     transition: 0.3s ease;
 }
 
+
+#music-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transform: translateY(-3px);
+
+
+}
+
+#music-disc {
+    width: 32px;
+    height: 32px;
+
+    display: block;
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+#music-toggle:hover {
+    box-shadow: none;
+}
+
+#music-toggle:hover #music-disc {
+    filter:
+        drop-shadow(0 0 5px rgba(179, 0, 60, 0.55))
+        drop-shadow(0 0 10px rgba(179, 0, 60, 0.25));
+}
+
+
+
 .nav-links a:hover {
     color: #e0004f;
 }
@@ -567,6 +613,11 @@ button:hover {
     font-size: 12px;
     letter-spacing: 2px;
     transition: 0.3s ease;
+}
+
+.nav-links a {
+    position: relative;
+    top: 3px;
 }
 
 .nav-links a:hover {
@@ -1392,17 +1443,25 @@ button:hover {
 ========================================= */
 
 .zafkiel-clock {
-    width: min(680px, 90vw);
+   width: min(520px, 90vw);
     aspect-ratio: 1 / 1;
 
     margin-bottom: 20px;
 
     position: relative;
 
-    background:
-        url("images/zafkiel-clock.png")
-        center / contain
-        no-repeat;
+    background-image: url("images/zafkiel-clock.png");
+    background-repeat: no-repeat;
+
+    /*
+       Actual clock inside the 2875 × 3840 artwork:
+       X: 441 → 2540
+       Y: 843 → 2989
+       Center: 1490, 1956
+    */
+
+    background-size: 210% auto;
+   background-position: 49% 50.94%;
 
     z-index: 1;
 
@@ -1753,8 +1812,8 @@ button:hover {
 .zafkiel-clock {
     position: relative;
 
-    width: 260px;
-    height: 260px;
+    width: min(520px, 90vw);
+    height: min(520px, 90vw);
 
     margin-bottom: 20px;
 
@@ -1762,10 +1821,16 @@ button:hover {
     justify-content: center;
     align-items: center;
 
-    background:
-        url("images/zafkiel-clock.png")
-        center / contain
-        no-repeat;
+    background-image: url("images/zafkiel-clock.png");
+    background-repeat: no-repeat;
+
+    /*
+       Artwork: 2875 × 3840
+       Clock center: ~1490, 1956
+    */
+
+    background-size: 145% auto;
+    background-position: 49% 50.94%;
 
     animation: zafkielPulse 3s ease-in-out infinite;
 
@@ -2441,9 +2506,13 @@ button:hover {
     }
 }
 
-
-
-
-.zafkiel-clock {
-    outline: 1px solid red;
+.clock-hour img,
+.clock-minute img {
+    visibility: hidden;
 }
+
+.clock-second {
+    visibility: hidden;
+}
+
+
