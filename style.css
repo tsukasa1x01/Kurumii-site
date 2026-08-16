@@ -670,7 +670,6 @@ button:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -679,6 +678,7 @@ button:hover {
     background: rgba(8, 5, 8, 0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    height: 70px;
 }
 
 .nav-logo {
@@ -690,6 +690,7 @@ button:hover {
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -709,9 +710,381 @@ button:hover {
     color: #b3003c;
 }
 
+/* =========================================
+   HAMBURGER MENU BUTTON
+   ========================================= */
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0;
+    margin-left: auto;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background-color: #b3003c;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* =========================================
+   DROPDOWN MENU
+   ========================================= */
+
+.dropdown-menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    max-height: calc(100vh - 70px);
+    background: #450a0e;
+    border-left: 2px solid #b3003c;
+    box-shadow: -10px 0 40px rgba(179, 0, 60, 0.3);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-menu.active {
+    transform: translateX(0);
+}
+
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: rgba(15, 3, 9, 0.5);
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: #b3003c;
+    border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #e0004f;
+}
+
+/* Navigation Section */
+.menu-nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(179, 0, 60, 0.4);
+}
+
+.menu-nav-link {
+    padding: 12px 16px;
+    color: #f2e9ed;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.menu-nav-link:hover {
+    background-color: rgba(179, 0, 60, 0.2);
+    border-left-color: #b3003c;
+    color: #e0004f;
+    padding-left: 20px;
+}
+
+/* Music Player Section */
+.menu-music-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 20px;
+}
+
+/* Current Track Display */
+.current-track-display {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(15, 3, 9, 0.6);
+    border: 1px solid rgba(179, 0, 60, 0.3);
+    border-radius: 8px;
+}
+
+.track-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.track-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.track-info h4 {
+    margin: 0;
+    color: #b3003c;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-info p {
+    margin: 4px 0 0;
+    color: #8f737e;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(15, 3, 9, 0.4);
+    border-radius: 6px;
+}
+
+.control-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #b3003c;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: #e0004f;
+    box-shadow: 0 0 15px rgba(224, 0, 79, 0.5);
+    transform: scale(1.05);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.volume-icon {
+    font-size: 18px;
+    color: #b3003c;
+}
+
+.volume-slider {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(179, 0, 60, 0.2);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #b3003c;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: #e0004f;
+    box-shadow: 0 0 10px rgba(224, 0, 79, 0.6);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #b3003c;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    background: #e0004f;
+    box-shadow: 0 0 10px rgba(224, 0, 79, 0.6);
+}
+
+/* Track List */
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: rgba(15, 3, 9, 0.4);
+    border: 1px solid rgba(179, 0, 60, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.track-item:hover {
+    background: rgba(179, 0, 60, 0.15);
+    border-color: rgba(179, 0, 60, 0.4);
+}
+
+.track-item.active {
+    background: rgba(179, 0, 60, 0.3);
+    border-color: #b3003c;
+    box-shadow: inset 0 0 15px rgba(179, 0, 60, 0.2);
+}
+
+.track-number {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #5c001f;
+    min-width: 28px;
+}
+
+.track-title {
+    font-size: 12px;
+    color: #c9aeb8;
+    flex: 1;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.track-item.active .track-title {
+    color: #e0004f;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 15px;
+    }
+
+    .navbar {
+        height: auto;
+        min-height: 64px;
+        padding: 12px 16px 0px;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-logo {
+        font-size: 13px;
+        letter-spacing: 3px;
+        line-height: 1.2;
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(179, 0, 60, 0.1);
+    }
+
+    .nav-links a {
+        position: relative;
+        top: 1px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+        line-height: 1.2;
+    }
+
+    #music-toggle {
+        width: 28px;
+        height: 28px;
+        top: -1px;
+        transform: none;
+    }
+
+    #music-disc {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Hamburger on second row for mobile */
+    .menu-toggle {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+    }
+
+    .dropdown-menu {
+        max-width: 100%;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: translateY(100%);
+        max-height: 60vh;
+    }
+
+    .dropdown-menu.active {
+        transform: translateY(0);
     }
 
     .hero {
@@ -744,13 +1117,7 @@ button:hover {
         font-size: 0.77rem;
     }
 
-    .spotify-button {
-        width: 100%;
-        text-align: center;
-        padding: 10px 12px;
-        font-size: 9px;
-        letter-spacing: 1.4px;
-    }
+   
 
     #personal {
         padding: 80px 20px;
@@ -2811,4 +3178,370 @@ button:hover {
     visibility: hidden;
 }
 
+/* =========================================
+   CLEAN NAVBAR — v0.6
+========================================= */
+
+.navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Old desktop navbar links are now inside the hamburger */
+.navbar > .nav-links {
+    display: none;
+}
+
+/* Music disc stays between the logo and hamburger */
+#music-toggle {
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-right: 8px;
+    transform: none;
+}
+
+/* Hamburger stays beside the music disc */
+.menu-toggle {
+    flex-shrink: 0;
+    margin-left: 0;
+}
+
+
+/* =========================================
+   MOBILE NAVBAR
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 12px 16px;
+    }
+
+    .nav-logo {
+        width: auto;
+        text-align: left;
+        padding: 0;
+        line-height: 1.2;
+    }
+
+    #music-toggle {
+        width: 28px;
+        height: 28px;
+        margin-left: auto;
+        margin-right: 6px;
+        transform: none;
+    }
+
+    #music-disc {
+        width: 28px;
+        height: 28px;
+    }
+
+    .menu-toggle {
+        width: auto;
+        padding: 8px;
+        margin-left: 0;
+    }
+
+}
+
+/* =========================================
+   FAVORITE SONG — LISTEN TO IT DROPDOWN
+   v0.7
+========================================= */
+
+.song-entry {
+    position: relative;
+    z-index: 5;
+}
+
+.song-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.song-details {
+    min-width: 0;
+}
+
+.song-details h4 {
+    margin-bottom: 8px;
+}
+
+.song-details p {
+    margin: 0;
+}
+
+
+/* =========================================
+   DROPDOWN WRAPPER
+========================================= */
+
+.music-links-dropdown {
+    position: relative;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   TOGGLE BUTTON
+========================================= */
+
+.music-links-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    min-width: 150px;
+
+    padding: 12px 16px;
+
+    background: transparent;
+    border: 1px solid rgba(179, 0, 60, 0.55);
+
+    color: #c9aeb8;
+
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.music-links-toggle:hover {
+    background: rgba(179, 0, 60, 0.12);
+
+    border-color: #b3003c;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 18px rgba(179, 0, 60, 0.18);
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.music-links-arrow {
+    display: inline-block;
+
+    font-size: 15px;
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.music-links-toggle[aria-expanded="true"]
+.music-links-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   DROPDOWN PANEL
+========================================= */
+
+.music-links-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 430px;
+    max-width: min(430px, 90vw);
+
+    padding: 18px;
+
+    background: #450a0e;
+
+    border: 1px solid rgba(179, 0, 60, 0.5);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(179, 0, 60, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-8px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 100;
+}
+
+
+/* OPEN STATE */
+
+.music-links-dropdown.open
+.music-links-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   INDIVIDUAL PREVIEW
+========================================= */
+
+.music-preview {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+
+    border-bottom:
+        1px solid rgba(201, 174, 184, 0.14);
+}
+
+.music-preview:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+.music-preview-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #c9aeb8;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   YOUTUBE
+========================================= */
+
+.youtube-embed {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #100406;
+}
+
+
+.youtube-embed iframe {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: none;
+}
+
+
+/* =========================================
+   SPOTIFY
+========================================= */
+
+.spotify-embed {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+
+.spotify-embed iframe {
+    width: 100%;
+
+    height: 152px;
+
+    display: block;
+
+    border: none;
+}
+
+
+/* =========================================
+   MOBILE OPTIMIZATION
+========================================= */
+
+@media (max-width: 768px) {
+
+    .song-info {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 22px;
+    }
+
+
+    .music-links-dropdown {
+        width: 100%;
+    }
+
+
+    .music-links-toggle {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+
+    .music-links-menu {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        max-width: none;
+
+        margin-top: 10px;
+
+        padding: 14px;
+    }
+
+
+    .youtube-embed {
+        aspect-ratio: 16 / 9;
+    }
+
+
+    .spotify-embed iframe {
+        height: 152px;
+    }
+
+}
 

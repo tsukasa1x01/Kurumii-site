@@ -17,29 +17,222 @@
 
     <div class="nav-logo">KURUMII COLLECTIVE</div>
 
-    <div class="nav-links">
-        <a href="#personal">BIO</a>
-        <a href="#archive">ARCHIVE</a>
-        <a href="#anime">ANIME</a>
-        <a href="#games">GAMES</a>
-        <a href="#socials">SOCIALS</a>
-        <a href="#projects">PROJECTS</a>
-<button id="music-toggle" type="button" aria-label="Toggle background music">
+    
 
-    <video
-        id="music-disc"
-        muted
-        playsinline
-        loop
-        preload="auto"
-    >
-        <source src="music/music-disc.webm" type="video/webm">
-    </video>
+    <button id="music-toggle" type="button" aria-label="Toggle background music">
+        <video
+            id="music-disc"
+            muted
+            playsinline
+            loop
+            preload="auto"
+        >
+            <source src="music/music-disc.webm" type="video/webm">
+        </video>
+    </button>
 
-</button>
-    </div>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
 </nav>
+
+<!-- DROPDOWN MENU -->
+<div id="dropdown-menu" class="dropdown-menu">
+    
+    <!-- Navigation Links Section -->
+    <div class="menu-nav-section">
+        <a href="#personal" class="menu-nav-link">BIO</a>
+        <a href="#archive" class="menu-nav-link">ARCHIVE</a>
+        <a href="#anime" class="menu-nav-link">ANIME</a>
+        <a href="#games" class="menu-nav-link">GAMES</a>
+        <a href="#socials" class="menu-nav-link">SOCIALS</a>
+        <a href="#projects" class="menu-nav-link">PROJECTS</a>
+    </div>
+
+    <!-- Music Player Section -->
+    <div class="menu-music-section">
+        
+        <!-- Current Track Display -->
+        <div class="current-track-display">
+            <div class="track-thumbnail">
+                <img id="current-track-art" src="images/track-06-m.jpg" alt="Current track">
+            </div>
+            <div class="track-info">
+                <h4 id="current-track-name">TRACK 06</h4>
+                <p id="current-track-artist">Now Playing</p>
+            </div>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="player-controls">
+            <button id="menu-play-pause" class="control-btn play-btn" aria-label="Play/Pause">▶</button>
+            <div class="volume-control">
+                <span class="volume-icon">🔊</span>
+                <input type="range" id="menu-volume" class="volume-slider" min="0" max="100" value="70">
+            </div>
+        </div>
+
+    <!-- Track List -->
+<div class="track-list">
+
+    <div class="track-item" data-track="0">
+        <span class="track-number">01</span>
+        <span class="track-title">TRACK 01</span>
+    </div>
+
+    <div class="track-item" data-track="1">
+        <span class="track-number">02</span>
+        <span class="track-title">TRACK 02</span>
+    </div>
+
+    <div class="track-item" data-track="2">
+        <span class="track-number">03</span>
+        <span class="track-title">TRACK 03</span>
+    </div>
+
+    <div class="track-item" data-track="3">
+        <span class="track-number">04</span>
+        <span class="track-title">TRACK 04</span>
+    </div>
+
+    <div class="track-item" data-track="4">
+        <span class="track-number">05</span>
+        <span class="track-title">TRACK 05</span>
+    </div>
+
+    <div class="track-item" data-track="5">
+        <span class="track-number">06</span>
+        <span class="track-title">TRACK 06</span>
+    </div>
+
+    <div class="track-item" data-track="6">
+        <span class="track-number">07</span>
+        <span class="track-title">TRACK 07</span>
+    </div>
+
+    <div class="track-item" data-track="7">
+        <span class="track-number">08</span>
+        <span class="track-title">TRACK 08</span>
+    </div>
+
+    <div class="track-item" data-track="8">
+        <span class="track-number">09</span>
+        <span class="track-title">TRACK 09</span>
+    </div>
+
+    <div class="track-item" data-track="9">
+        <span class="track-number">10</span>
+        <span class="track-title">TRACK 10</span>
+    </div>
+
+    <div class="track-item" data-track="10">
+        <span class="track-number">11</span>
+        <span class="track-title">TRACK 11</span>
+    </div>
+
+    <div class="track-item" data-track="11">
+        <span class="track-number">12</span>
+        <span class="track-title">TRACK 12</span>
+    </div>
+
+    <div class="track-item" data-track="12">
+        <span class="track-number">13</span>
+        <span class="track-title">TRACK 13</span>
+    </div>
+
+    <div class="track-item" data-track="13">
+        <span class="track-number">14</span>
+        <span class="track-title">TRACK 14</span>
+    </div>
+
+    <div class="track-item" data-track="14">
+        <span class="track-number">15</span>
+        <span class="track-title">TRACK 15</span>
+    </div>
+
+    <div class="track-item" data-track="15">
+        <span class="track-number">16</span>
+        <span class="track-title">TRACK 16</span>
+    </div>
+
+    <div class="track-item" data-track="16">
+        <span class="track-number">17</span>
+        <span class="track-title">TRACK 17</span>
+    </div>
+
+    <div class="track-item" data-track="17">
+        <span class="track-number">18</span>
+        <span class="track-title">TRACK 18</span>
+    </div>
+
+    <div class="track-item" data-track="18">
+        <span class="track-number">19</span>
+        <span class="track-title">TRACK 19</span>
+    </div>
+
+    <div class="track-item" data-track="19">
+        <span class="track-number">20</span>
+        <span class="track-title">TRACK 20</span>
+    </div>
+
+    <div class="track-item" data-track="20">
+        <span class="track-number">21</span>
+        <span class="track-title">TRACK 21</span>
+    </div>
+
+    <div class="track-item" data-track="21">
+        <span class="track-number">22</span>
+        <span class="track-title">TRACK 22</span>
+    </div>
+
+    <div class="track-item" data-track="22">
+        <span class="track-number">23</span>
+        <span class="track-title">TRACK 23</span>
+    </div>
+
+    <div class="track-item" data-track="23">
+        <span class="track-number">24</span>
+        <span class="track-title">TRACK 24</span>
+    </div>
+
+    <div class="track-item" data-track="24">
+        <span class="track-number">25</span>
+        <span class="track-title">TRACK 25</span>
+    </div>
+
+    <div class="track-item" data-track="25">
+        <span class="track-number">26</span>
+        <span class="track-title">TRACK 26</span>
+    </div>
+
+    <div class="track-item" data-track="26">
+        <span class="track-number">27</span>
+        <span class="track-title">TRACK 27</span>
+    </div>
+
+    <div class="track-item" data-track="27">
+        <span class="track-number">28</span>
+        <span class="track-title">TRACK 28</span>
+    </div>
+
+    <div class="track-item" data-track="28">
+        <span class="track-number">29</span>
+        <span class="track-title">TRACK 29</span>
+    </div>
+
+    <div class="track-item" data-track="29">
+        <span class="track-number">30</span>
+        <span class="track-title">TRACK 30</span>
+    </div>
+
+</div>
+
+    </div>
+
+</div>
 
 <div class="top-banner-wrap" aria-label="Top banner placeholder">
     <img src="images/topmost-banner.jpg" alt="Top banner placeholder" class="top-banner-image">
@@ -838,77 +1031,205 @@
 
     <div class="personal-list">
 
-    
-<div class="personal-entry song-entry">
 
-    <span class="personal-number">01</span>
+        <!-- =========================
+             FAVORITE SONG
+        ========================= -->
 
-    <div class="personal-content">
+        <div class="personal-entry song-entry">
 
-        <h3>FAVORITE SONG</h3>
+            <span class="personal-number">01</span>
 
-        <div class="song-info">
+            <div class="personal-content">
 
-            <div>
-                <h4>メフィスト - Mefisto</h4>
-                <p>女王蜂 (QUEEN BEE)</p>
+                <h3>FAVORITE SONG</h3>
+
+                <div class="song-info">
+
+                    <div class="song-details">
+
+                        <h4>メフィスト - Mefisto</h4>
+
+                        <p>女王蜂 (QUEEN BEE)</p>
+
+                    </div>
+
+
+                    <!-- LISTEN TO IT DROPDOWN -->
+
+                    <div class="music-links-dropdown">
+
+                        <button
+                            type="button"
+                            class="music-links-toggle"
+                            aria-expanded="false">
+
+                            <span>LISTEN TO IT</span>
+
+                            <span class="music-links-arrow">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="music-links-menu">
+
+
+                            <!-- OFFICIAL ENDING -->
+
+                            <div class="music-preview">
+
+                                <span class="music-preview-label">
+                                    OFFICIAL ENDING SEQUENCE
+                                </span>
+
+                                <div class="youtube-embed">
+
+                                   <<iframe
+    src="https://www.youtube.com/embed/0saw1cGIl1A"
+    title="Mephisto - Official Ending Sequence"
+    loading="lazy"
+    referrerpolicy="origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- FANMADE LYRICS VIDEO -->
+
+                            <div class="music-preview">
+
+                                <span class="music-preview-label">
+                                     LYRICS VIDEO
+                                </span>
+
+                                <div class="youtube-embed">
+<iframe
+    src="https://www.youtube.com/embed/wTawbEqXovM"
+    title="Mephisto - Lyrics Video"
+    loading="lazy"
+    referrerpolicy="origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SPOTIFY -->
+
+                            <div class="music-preview">
+
+                                <span class="music-preview-label">
+                                    SPOTIFY
+                                </span>
+
+                                <div class="spotify-embed">
+
+                                    <iframe
+                                        src="https://open.spotify.com/embed/track/45LUKiex0D78VuhP3Oz6mG"
+                                        title="Mephisto - Spotify"
+                                        loading="lazy"
+                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                                    </iframe>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
+        </div>
+
+
+        <!-- =========================
+             FAVORITE ANIME
+        ========================= -->
+
+        <div class="personal-entry">
+
+            <span class="personal-number">02</span>
+
             <a
-                href="https://open.spotify.com/track/45LUKiex0D78VuhP3Oz6mG"
-                target="_blank"
-                class="spotify-button">
-                LISTEN ON SPOTIFY
+                href="#anime"
+                class="personal-anime-link">
+
+                <div class="personal-content">
+
+                    <h3>FAVORITE ANIME</h3>
+
+                    <p>
+                        Stories that stayed long after the credits rolled.
+                    </p>
+
+                </div>
+
             </a>
 
         </div>
 
-    </div>
 
-</div>
-
-
-        
-<div class="personal-entry">
-    <span class="personal-number">02</span>
-
-    <a href="#anime" class="personal-anime-link">
-        <div class="personal-content">
-            <h3>FAVORITE ANIME</h3>
-            <p>
-                Stories that stayed long after the credits rolled.
-            </p>
-        </div>
-    </a>
-</div>
-
-
-
-        
-<div class="personal-entry">
-    <span class="personal-number">03</span>
-
-    <a href="#characters" class="personal-character-link">
-        <div class="personal-content">
-            <h3>FAVORITE CHARACTERS</h3>
-            <p>
-                Characters that somehow became unforgettable.
-            </p>
-        </div>
-    </a>
-</div>
-
+        <!-- =========================
+             FAVORITE CHARACTERS
+        ========================= -->
 
         <div class="personal-entry">
+
+            <span class="personal-number">03</span>
+
+            <a
+                href="#characters"
+                class="personal-character-link">
+
+                <div class="personal-content">
+
+                    <h3>FAVORITE CHARACTERS</h3>
+
+                    <p>
+                        Characters that somehow became unforgettable.
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             MISCELLANEOUS
+        ========================= -->
+
+        <div class="personal-entry">
+
             <span class="personal-number">04</span>
 
             <div class="personal-content">
+
                 <h3>MISCELLANEOUS — Work in progress</h3>
+
                 <p>
                     Books, hobbies, interests, and assorted pieces of Kurumii.
                 </p>
+
             </div>
+
         </div>
+
 
     </div>
 
@@ -1019,26 +1340,139 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 <script>
 
     // =========================================
-    // BACKGROUND MUSIC — v0.7 (with BG transitions)
+    // KURUMII MENU + MUSIC SYSTEM — v0.7
     // =========================================
 
-    const music = document.getElementById("background-music");
-    const musicToggle = document.getElementById("music-toggle");
-    const musicDisc = document.getElementById("music-disc");
-    const musicBgLayer = document.getElementById("music-bg-layer");
 
-    const tracks = [
-        "music/track-01.mp3",
-        "music/track-02.mp3",
-        "music/track-03.mp3",
-        "music/track-04.mp3",
-        "music/track-05.mp3",
-        "music/track-06.mp3",
-        "music/track-07.mp3",
-        "music/track-08.mp3",
-        "music/track-09.mp3",
-        "music/track-10.mp3"
+    // =========================================
+    // ELEMENT REFERENCES
+    // =========================================
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const dropdownMenu =
+        document.getElementById("dropdown-menu");
+
+    const music =
+        document.getElementById("background-music");
+
+    const musicToggle =
+        document.getElementById("music-toggle");
+
+    const musicDisc =
+        document.getElementById("music-disc");
+
+    const musicBgLayer =
+        document.getElementById("music-bg-layer");
+
+    const menuPlayPauseBtn =
+        document.getElementById("menu-play-pause");
+
+    const menuVolumeSlider =
+        document.getElementById("menu-volume");
+
+    const currentTrackArt =
+        document.getElementById("current-track-art");
+
+    const currentTrackName =
+        document.getElementById("current-track-name");
+
+    const currentTrackArtist =
+        document.getElementById("current-track-artist");
+
+    const trackItems =
+        document.querySelectorAll(".track-item");
+
+
+    // =========================================
+    // TRACK FILES — 01 TO 30
+    // =========================================
+
+    const tracks = Array.from(
+        { length: 30 },
+        (_, index) =>
+            `music/track-${String(index + 1).padStart(2, "0")}.mp3`
+    );
+
+
+    // =========================================
+// ACTIVE TRACK LIMIT — v0.7
+// =========================================
+
+const activeTrackCount = 10;
+
+
+
+    // =========================================
+    // TRACK METADATA
+    // =========================================
+
+    const trackMetadata = [
+        {
+            title: "ファタール [Fatal] (Instrumental)",
+            artist: "GEMN, Tatsuya Kitani, Kento Nakajima"
+        },
+        {
+            title: "Burning (Instrumental)",
+            artist: "Hitsujibungaku [羊文学]"
+        },
+        {
+            title: "Infermata",
+            artist: "Spotlight Kids"
+        },
+        {
+            title: "Test Me (Instrumental)",
+            artist: "CHANMINA [ちゃんみな]"
+        },
+        {
+            title: "アイドル [Idol] (Instrumental)",
+            artist: "YOASOBI"
+        },
+        {
+            title: "メフィスト [Mephisto] (Instrumental)",
+            artist: "Queen Bee [女王蜂]"
+        },
+        {
+            title: "セレナーデ [Serenade] (Instrumental)",
+            artist: "Natori [なとり]"
+        },
+        {
+            title: "Date a Live OST (Orchestra Version)",
+            artist: "Sweet ARMS"
+        },
+        {
+            title: "デート・ア・ライブ [Date a Live] (Instrumental)",
+            artist: "Sweet ARMS"
+        },
+        {
+            title: "Date a Live OST (Piano Version)",
+            artist: "Sweet ARMS"
+        }
     ];
+
+
+    // Fill remaining 20 slots until their metadata is added
+    for (
+        let i = trackMetadata.length;
+        i < tracks.length;
+        i++
+    ) {
+
+        const number =
+            String(i + 1).padStart(2, "0");
+
+        trackMetadata.push({
+            title: `TRACK ${number}`,
+            artist: "Now Playing"
+        });
+
+    }
+
+
+    // =========================================
+    // STATE
+    // =========================================
 
     let currentTrack = -1;
     let musicEnabled = true;
@@ -1046,32 +1480,331 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 
 
     // =========================================
-    // UPDATE BACKGROUND BASED ON TRACK
+    // HAMBURGER MENU
+    // =========================================
+
+
+
+
+    // =========================================
+// FAVORITE SONG DROPDOWN
+// =========================================
+
+const musicLinksDropdown =
+    document.querySelector(".music-links-dropdown");
+
+const musicLinksToggle =
+    document.querySelector(".music-links-toggle");
+
+
+if (
+    musicLinksDropdown &&
+    musicLinksToggle
+) {
+
+    musicLinksToggle.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            const isOpen =
+                musicLinksDropdown.classList.toggle("open");
+
+            musicLinksToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                !musicLinksDropdown.contains(
+                    event.target
+                )
+            ) {
+
+                musicLinksDropdown.classList.remove(
+                    "open"
+                );
+
+                musicLinksToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+    menuToggle.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            menuToggle.classList.toggle("active");
+            dropdownMenu.classList.toggle("active");
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(".menu-nav-link")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    menuToggle.classList.remove("active");
+                    dropdownMenu.classList.remove("active");
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                !menuToggle.contains(event.target) &&
+                !dropdownMenu.contains(event.target)
+            ) {
+
+                menuToggle.classList.remove("active");
+                dropdownMenu.classList.remove("active");
+
+            }
+
+        }
+    );
+
+
+    // =========================================
+    // MUSIC BACKGROUND
     // =========================================
 
     function updateMusicBackground() {
-        if (musicEnabled && !music.paused && currentTrack >= 0) {
-            // Get track number for bg image (1-indexed)
-            const trackNum = String(currentTrack + 1).padStart(2, "0");
-            
-            // Detect if mobile (max-width: 768px)
-            const isMobile = window.innerWidth <= 768;
-            const imageSuffix = isMobile ? "-mp.jpg" : "-m.jpg";
-            const bgImage = `url('images/track-${trackNum}${imageSuffix}')`;
-            
-            musicBgLayer.style.backgroundImage = bgImage;
+
+        if (
+            musicEnabled &&
+            !music.paused &&
+            currentTrack >= 0
+        ) {
+
+            const trackNum =
+                String(currentTrack + 1).padStart(2, "0");
+
+            const isMobile =
+                window.innerWidth <= 768;
+
+            const imageSuffix =
+                isMobile ? "-mp.jpg" : "-m.jpg";
+
+            musicBgLayer.style.backgroundImage =
+                `url('images/track-${trackNum}${imageSuffix}')`;
+
             musicBgLayer.classList.add("active");
+
         } else {
+
             musicBgLayer.classList.remove("active");
+
         }
+
     }
 
-    // Update background on window resize (for responsive behavior)
-    window.addEventListener("resize", updateMusicBackground);
+
+    window.addEventListener(
+        "resize",
+        updateMusicBackground
+    );
 
 
     // =========================================
-    // PLAY RANDOM TRACK
+    // MUSIC PLAYER DISPLAY
+    // =========================================
+
+    function updateMenuDisplay() {
+
+        if (currentTrack < 0) {
+            return;
+        }
+
+
+        const trackNum =
+            String(currentTrack + 1).padStart(2, "0");
+
+        const metadata =
+            trackMetadata[currentTrack];
+
+
+        currentTrackName.textContent =
+            metadata.title;
+
+        currentTrackArtist.textContent =
+            metadata.artist;
+
+
+        const isMobile =
+            window.innerWidth <= 768;
+
+        const imageSuffix =
+            isMobile ? "-mp.jpg" : "-m.jpg";
+
+
+        currentTrackArt.src =
+            `images/track-${trackNum}${imageSuffix}`;
+
+
+        trackItems.forEach(
+            (item, index) => {
+
+                item.classList.toggle(
+                    "active",
+                    index === currentTrack
+                );
+
+            }
+        );
+
+    }
+
+    function updateTrackVisibility() {
+
+    trackItems.forEach(
+        (item, index) => {
+
+            item.style.display =
+                index < activeTrackCount
+                    ? ""
+                    : "none";
+
+        }
+    );
+
+}
+
+
+    // =========================================
+    // MUSIC BUTTON STATE
+    // =========================================
+
+    function updateMusicButton() {
+
+        musicToggle.setAttribute(
+            "aria-label",
+            musicEnabled && !music.paused
+                ? "Turn background music off"
+                : "Turn background music on"
+        );
+
+    }
+
+
+    // =========================================
+    // MENU PLAY BUTTON STATE
+    // =========================================
+
+    function updateMenuPlayButton() {
+
+        if (
+            musicEnabled &&
+            !music.paused
+        ) {
+
+            menuPlayPauseBtn.textContent = "⏸";
+
+            menuPlayPauseBtn.setAttribute(
+                "aria-label",
+                "Pause"
+            );
+
+        } else {
+
+            menuPlayPauseBtn.textContent = "▶";
+
+            menuPlayPauseBtn.setAttribute(
+                "aria-label",
+                "Play"
+            );
+
+        }
+
+    }
+
+
+    // =========================================
+    // PLAY SELECTED TRACK
+    // =========================================
+
+    function playTrack(trackIndex) {
+
+        if (
+    trackIndex < 0 ||
+    trackIndex >= activeTrackCount
+) {
+    return;
+}
+
+        currentTrack = trackIndex;
+
+        musicEnabled = true;
+
+        music.src =
+            tracks[currentTrack];
+
+        music.load();
+
+
+        updateMenuDisplay();
+
+
+        music.play().then(
+            () => {
+
+                musicDisc.play();
+
+                updateMusicButton();
+                updateMenuPlayButton();
+                updateMusicBackground();
+
+            }
+        ).catch(
+            () => {
+
+                console.log(
+                    "Playback could not start."
+                );
+
+                musicEnabled = false;
+
+                updateMusicButton();
+                updateMenuPlayButton();
+                updateMusicBackground();
+
+            }
+        );
+
+    }
+
+
+    // =========================================
+    // RANDOM TRACK
     // =========================================
 
     function playRandomTrack() {
@@ -1080,132 +1813,237 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
             return;
         }
 
+
         let nextTrack;
 
-        do {
-            nextTrack = Math.floor(Math.random() * tracks.length);
-        } while (
-            tracks.length > 1 &&
-            nextTrack === currentTrack
+do {
+
+    nextTrack =
+        Math.floor(
+            Math.random() * activeTrackCount
         );
 
-        currentTrack = nextTrack;
+} while (
+    activeTrackCount > 1 &&
+    nextTrack === currentTrack
+);
 
-        music.src = tracks[currentTrack];
 
-        music.play().then(() => {
+        playTrack(nextTrack);
 
-            musicDisc.play();
-
-            musicEnabled = true;
-
-            updateMusicButton();
-            updateMusicBackground();
-
-        }).catch(() => {
-
-            console.log("Playback was blocked by the browser.");;
-
-            musicEnabled = false;
-
-            updateMusicButton();
-
-        });
     }
-
-
-    // =========================================
-    // NEXT TRACK WHEN CURRENT TRACK ENDS
-    // =========================================
-
-    music.addEventListener("ended", () => {
-
-        if (musicEnabled) {
-            playRandomTrack();
-        }
-
-    });
 
 
     // =========================================
     // MUSIC TOGGLE
     // =========================================
 
-    musicToggle.addEventListener("click", (event) => {
+    musicToggle.addEventListener(
+        "click",
+        (event) => {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        if (music.paused) {
 
-            musicEnabled = true;
+            if (music.paused) {
 
-            music.play().then(() => {
+                musicEnabled = true;
 
-                musicDisc.play();
 
-                updateMusicButton();
-                updateMusicBackground();
+                music.play().then(
+                    () => {
 
-            }).catch(() => {
+                        musicDisc.play();
 
-                console.log("Playback could not start.");
+                        updateMusicButton();
+                        updateMenuPlayButton();
+                        updateMusicBackground();
+
+                    }
+                ).catch(
+                    () => {
+
+                        console.log(
+                            "Playback could not start."
+                        );
+
+                        musicEnabled = false;
+
+                        updateMusicButton();
+                        updateMenuPlayButton();
+
+                    }
+                );
+
+
+            } else {
 
                 musicEnabled = false;
 
+                music.pause();
+                musicDisc.pause();
+
                 updateMusicButton();
+                updateMenuPlayButton();
+                updateMusicBackground();
 
-            });
+            }
 
-        } else {
+        }
+    );
 
-            musicEnabled = false;
 
-            music.pause();
+    // =========================================
+    // MENU PLAY / PAUSE
+    // =========================================
+
+    menuPlayPauseBtn.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+
+            if (music.paused) {
+
+                musicEnabled = true;
+
+                music.play().then(
+                    () => {
+
+                        musicDisc.play();
+
+                        updateMusicButton();
+                        updateMenuPlayButton();
+                        updateMusicBackground();
+
+                    }
+                ).catch(
+                    () => {
+
+                        console.log(
+                            "Playback could not start."
+                        );
+
+                    }
+                );
+
+            } else {
+
+                musicEnabled = false;
+
+                music.pause();
+                musicDisc.pause();
+
+                updateMusicButton();
+                updateMenuPlayButton();
+                updateMusicBackground();
+
+            }
+
+        }
+    );
+
+
+    // =========================================
+    // VOLUME
+    // =========================================
+
+    music.volume =
+        menuVolumeSlider.value / 100;
+
+
+    menuVolumeSlider.addEventListener(
+        "input",
+        (event) => {
+
+            music.volume =
+                event.target.value / 100;
+
+        }
+    );
+
+
+    // =========================================
+    // TRACK SELECTION
+    // =========================================
+
+    trackItems.forEach(
+        (item) => {
+
+            item.addEventListener(
+                "click",
+                (event) => {
+
+                    event.stopPropagation();
+
+
+                    const trackIndex =
+                        parseInt(
+                            item.dataset.track,
+                            10
+                        );
+
+
+                    playTrack(trackIndex);
+
+                }
+            );
+
+        }
+    );
+
+
+    // =========================================
+    // WHEN TRACK ENDS
+    // =========================================
+
+    music.addEventListener(
+        "ended",
+        () => {
+
+            if (musicEnabled) {
+
+                playRandomTrack();
+
+            }
+
+        }
+    );
+
+
+    // =========================================
+    // AUDIO STATE SYNC
+    // =========================================
+
+    music.addEventListener(
+        "play",
+        () => {
+
+            updateMusicButton();
+            updateMenuPlayButton();
+            updateMusicBackground();
+
+        }
+    );
+
+
+    music.addEventListener(
+        "pause",
+        () => {
 
             musicDisc.pause();
 
             updateMusicButton();
+            updateMenuPlayButton();
             updateMusicBackground();
 
         }
-
-    });
-
-
-    // =========================================
-    // UPDATE MUSIC BUTTON
-    // =========================================
-
-    function updateMusicButton() {
-
-        if (musicEnabled && !music.paused) {
-
-            musicToggle.setAttribute(
-                "aria-label",
-                "Turn background music off"
-            );
-
-        } else {
-
-            musicToggle.setAttribute(
-                "aria-label",
-                "Turn background music on"
-            );
-
-        }
-
-    }
+    );
 
 
     // =========================================
-    // INITIAL AUTOPLAY ATTEMPT
-    // =========================================
-
-    playRandomTrack();
-
-
-    // =========================================
-    // FIRST USER INTERACTION FALLBACK
+    // FIRST USER INTERACTION
     // =========================================
 
     function startMusicAfterInteraction(event) {
@@ -1214,22 +2052,28 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
             return;
         }
 
-        // Don't interfere with the music toggle.
-        if (event.target.closest("#music-toggle")) {
+
+        if (
+            event.target.closest("#music-toggle") ||
+            event.target.closest("#dropdown-menu")
+        ) {
+
             return;
+
         }
+
 
         userHasInteracted = true;
 
-        // Autoplay already succeeded.
+
         if (!music.paused) {
             return;
         }
 
+
         musicEnabled = true;
 
         playRandomTrack();
-        updateMusicBackground();
 
     }
 
@@ -1241,10 +2085,15 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 
 
     // =========================================
-    // INITIAL BUTTON STATE
+    // INITIAL STATE
     // =========================================
 
     updateMusicButton();
+    updateMenuPlayButton();
+updateTrackVisibility();
+
+    // Try autoplay.
+    playRandomTrack();
 
 </script>
 
