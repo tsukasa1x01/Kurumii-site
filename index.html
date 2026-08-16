@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Kurumii</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="music-bg-layer" id="music-bg-layer"></div>
     
 <div class="nav-logo">KURUMII COLLECTIVE</div>
 
@@ -38,7 +41,9 @@
 
 </nav>
 
-
+<div class="top-banner-wrap" aria-label="Top banner placeholder">
+    <img src="images/topmost-banner.jpg" alt="Top banner placeholder" class="top-banner-image">
+</div>
 
     <main class="hero">
 
@@ -1014,12 +1019,13 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
 <script>
 
     // =========================================
-    // BACKGROUND MUSIC — v0.6
+    // BACKGROUND MUSIC — v0.7 (with BG transitions)
     // =========================================
 
     const music = document.getElementById("background-music");
     const musicToggle = document.getElementById("music-toggle");
     const musicDisc = document.getElementById("music-disc");
+    const musicBgLayer = document.getElementById("music-bg-layer");
 
     const tracks = [
         "music/track-01.mp3",
@@ -1037,6 +1043,31 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
     let currentTrack = -1;
     let musicEnabled = true;
     let userHasInteracted = false;
+
+
+    // =========================================
+    // UPDATE BACKGROUND BASED ON TRACK
+    // =========================================
+
+    function updateMusicBackground() {
+        if (musicEnabled && !music.paused && currentTrack >= 0) {
+            // Get track number for bg image (1-indexed)
+            const trackNum = String(currentTrack + 1).padStart(2, "0");
+            
+            // Detect if mobile (max-width: 768px)
+            const isMobile = window.innerWidth <= 768;
+            const imageSuffix = isMobile ? "-mp.jpg" : "-m.jpg";
+            const bgImage = `url('images/track-${trackNum}${imageSuffix}')`;
+            
+            musicBgLayer.style.backgroundImage = bgImage;
+            musicBgLayer.classList.add("active");
+        } else {
+            musicBgLayer.classList.remove("active");
+        }
+    }
+
+    // Update background on window resize (for responsive behavior)
+    window.addEventListener("resize", updateMusicBackground);
 
 
     // =========================================
@@ -1069,10 +1100,11 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
             musicEnabled = true;
 
             updateMusicButton();
+            updateMusicBackground();
 
         }).catch(() => {
 
-            console.log("Playback was blocked by the browser.");
+            console.log("Playback was blocked by the browser.");;
 
             musicEnabled = false;
 
@@ -1112,6 +1144,7 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
                 musicDisc.play();
 
                 updateMusicButton();
+                updateMusicBackground();
 
             }).catch(() => {
 
@@ -1132,6 +1165,7 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
             musicDisc.pause();
 
             updateMusicButton();
+            updateMusicBackground();
 
         }
 
@@ -1195,6 +1229,7 @@ document.querySelectorAll('.anime-ribbon').forEach(ribbon => {
         musicEnabled = true;
 
         playRandomTrack();
+        updateMusicBackground();
 
     }
 

@@ -1,12 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
+
+/* =========================================
+   MUSIC BACKGROUND LAYER SYSTEM
+   ========================================= */
+
+.music-bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, background-image 0.8s ease-in-out;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.music-bg-layer.active {
+    opacity: 0.5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #030203;
     color: #f2e9ed;
     font-family: Arial, sans-serif;
     text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
 
     position: relative;
     overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 body::before {
@@ -60,6 +103,48 @@ button:hover {
     box-shadow: 0 0 20px rgba(224, 0, 79, 0.5);
     transform: translateY(-3px);
 }
+.top-banner-wrap {
+    width: min(1200px, calc(100% - 24px));
+    margin: 92px auto 0;
+    border: 1px solid rgba(179, 0, 60, 0.28);
+    background: rgba(15, 3, 9, 0.55);
+    overflow: visible;
+    border-radius: 12px;
+    box-shadow: 
+        /* Inner depth glow */
+        inset 0 0 40px rgba(179, 0, 60, 0.15),
+        /* Primary red/pink surround glow - maximum spread */
+        0 0 60px rgba(179, 0, 60, 0.35),
+        0 0 120px rgba(179, 0, 60, 0.30),
+        0 0 180px rgba(179, 0, 60, 0.25),
+        0 0 260px rgba(179, 0, 60, 0.20),
+        0 0 340px rgba(179, 0, 60, 0.15),
+        0 0 420px rgba(179, 0, 60, 0.10),
+        /* Secondary cyan glow for depth */
+        0 0 80px rgba(45, 219, 240, 0.25),
+        0 0 160px rgba(45, 219, 240, 0.18),
+        0 0 240px rgba(45, 219, 240, 0.12),
+        0 0 320px rgba(45, 219, 240, 0.08),
+        /* Tertiary green accent */
+        0 0 100px rgba(39, 240, 163, 0.15),
+        /* Directional surround pressure - extended */
+        -80px 0 160px rgba(179, 0, 60, 0.18),
+        80px 0 160px rgba(179, 0, 60, 0.18),
+        0 -80px 160px rgba(45, 219, 240, 0.15),
+        0 80px 160px rgba(179, 0, 60, 0.15);
+    position: relative;
+}
+
+.top-banner-image {
+    display: block;
+    width: 100%;
+    height: clamp(140px, 24vw, 320px);
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.85) contrast(1.05);
+    border-radius: 12px;
+}
+
 .hero {
     min-height: 100vh;
 
@@ -70,7 +155,7 @@ button:hover {
 
     text-align: center;
 
-    padding: 110px 20px 40px;
+    padding: 30px 20px 40px;
 
     box-sizing: border-box;
 
@@ -625,57 +710,126 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    .hero {
+        padding-top: 24px;
+        padding-bottom: 50px;
+    }
+
+    .top-banner-wrap {
+        width: min(100%, calc(100% - 16px));
+        margin-top: 96px;
+    }
+
+    .top-banner-image {
+        height: 120px;
+    }
 
     .song-info {
-    flex-direction: column;
-    align-items: flex-start;
-}
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 14px;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .song-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .song-info p {
+        font-size: 0.77rem;
+    }
+
+    .spotify-button {
+        width: 100%;
+        text-align: center;
+        padding: 10px 12px;
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
 
     #personal {
-    padding: 80px 20px;
-}
+        padding: 80px 20px;
+    }
 
-.personal-entry {
-    gap: 18px;
-    padding: 28px 0;
-}
+    .personal-entry {
+        gap: 18px;
+        padding: 24px 0;
+    }
 
-.personal-content h3 {
-    font-size: 17px;
-}
+    .personal-entry:nth-child(2),
+    .personal-entry:nth-child(3) {
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .personal-content h3 {
+        font-size: 17px;
+    }
 
     .navbar {
         height: auto;
-        min-height: 60px;
-        padding: 15px 20px;
+        min-height: 64px;
+        padding: 12px 16px 14px;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
 
     .nav-logo {
-        font-size: 16px;
+        font-size: 13px;
+        letter-spacing: 3px;
+        line-height: 1.2;
     }
 
     .nav-links {
         width: 100%;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-        gap: 12px 18px;
+        gap: 8px 12px;
     }
 
     .nav-links a {
-        font-size: 10px;
-        letter-spacing: 1px;
+        position: relative;
+        top: 1px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+        line-height: 1.2;
+    }
+
+    #music-toggle {
+        width: 28px;
+        height: 28px;
+        top: -1px;
+        transform: none;
+    }
+
+    #music-disc {
+        width: 28px;
+        height: 28px;
     }
 
     h1 {
-        font-size: 42px;
+        font-size: clamp(2.6rem, 11vw, 3.5rem);
         letter-spacing: 5px;
-        margin-top: 100px;
+        margin-top: 120px;
+        line-height: 1.1;
     }
 
     p {
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    button,
+    .spotify-button,
+    .archive-link,
+    .stay-tuned {
+        min-height: 44px;
+        line-height: 1.3;
     }
 
     .clock {
@@ -684,24 +838,141 @@ button:hover {
         font-size: 20px;
     }
 
-.archive-grid,
-.anime-grid {
-    grid-template-columns: 1fr;
-}
-
+    #archive,
+    #socials,
+    #anime,
     #games,
-    #projects {
-        padding: 80px 20px;
+    #projects,
+    #personal {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 72px;
+        padding-bottom: 56px;
+    }
+
+    #socials {
+        padding-bottom: 28px;
+    }
+
+    #anime {
+        padding-top: 42px;
+    }
+
+    .archive-grid,
+    .anime-grid,
+    .anime-row,
+    .project-list,
+    .social-links {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .archive-grid {
+        max-width: 380px;
+        gap: 12px;
+    }
+
+    .archive-card {
+        padding: 16px 18px;
+        min-height: 124px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .archive-card span {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .archive-card h3 {
+        font-size: 1.05rem;
+        letter-spacing: 2px;
+        margin: 10px 0 8px;
+    }
+
+    .archive-card p {
+        font-size: 0.76rem;
+        line-height: 1.5;
+    }
+
+    .archive-link {
+        margin-top: 12px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .anime-card,
+    .social-card,
+    .project-entry,
+    .game-entry {
+        padding: 20px 16px;
+    }
+
+    .social-card {
+        grid-template-columns: 32px 1fr auto;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .social-card strong {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .social-arrow {
+        justify-self: end;
+    }
+
+    .game-entry {
+        min-height: 64px;
+    }
+
+    .project-entry {
+        grid-template-columns: 36px 1fr;
+        gap: 12px;
+        padding: 18px 8px;
+        align-items: start;
+    }
+
+    .project-number {
+        margin-top: 3px;
+    }
+
+    .project-meta {
+        margin-bottom: 6px;
+        font-size: 0.56rem;
+        letter-spacing: 0.18em;
+    }
+
+    .project-content h3 {
+        margin-bottom: 6px;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        line-height: 1.3;
+    }
+
+    .project-content p {
+        font-size: 0.72rem;
+        line-height: 1.55;
+    }
+
+    .project-status {
+        grid-column: 2;
+        margin-top: 4px;
+        font-size: 0.56rem;
+        letter-spacing: 0.14em;
     }
 
     #games h2,
-    #projects h2 {
-        font-size: 32px;
+    #projects h2,
+    #archive h2,
+    #socials h2,
+    #anime h2,
+    #personal h2 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        letter-spacing: 4px;
     }
-
-    .game-card {
-    padding: 25px;
-}
 }
 
 
@@ -972,10 +1243,11 @@ button:hover {
 
     .anime-intro {
         margin-bottom: 60px;
+        font-size: 0.9rem;
     }
 
     .anime-best {
-        margin-bottom: 100px;
+        margin-bottom: 70px;
     }
 
     .anime-best-image {
@@ -983,26 +1255,49 @@ button:hover {
     }
 
     .anime-best h3 {
-        font-size: 1.4rem;
+        font-size: 1.45rem;
+        letter-spacing: 0.12em;
     }
 
     .anime-category {
-        margin-bottom: 85px;
+        margin-bottom: 56px;
     }
 
     .anime-row {
         grid-template-columns: 1fr;
-        gap: 55px;
+        gap: 26px;
+    }
+
+    .anime-category .anime-row {
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+    }
+
+    .anime-card {
+        padding: 0;
+        background: transparent;
+        border: none;
     }
 
     .anime-card > img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    display: block;
-    margin-bottom: 18px;
-}
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        display: block;
+        margin-bottom: 14px;
+    }
+
+    .anime-card h4 {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .anime-number {
+        margin-bottom: 6px;
+    }
+
     .dual-images {
         height: auto;
     }
@@ -1012,34 +1307,33 @@ button:hover {
     }
 
     .category-title {
-        margin-bottom: 30px;
+        margin-bottom: 22px;
+        font-size: 0.7rem;
+        letter-spacing: 0.24em;
     }
 
+    .anime-ribbon {
+        padding: 14px 16px;
+    }
 
-.project-entry {
-    grid-template-columns: 40px 1fr;
-    gap: 18px;
+    .project-entry {
+        grid-template-columns: 40px 1fr;
+        gap: 18px;
+        padding: 30px 5px;
+    }
 
-    padding: 30px 5px;
-}
+    .project-status {
+        grid-column: 2;
+        margin-top: 5px;
+    }
 
-.project-status {
-    grid-column: 2;
+    .project-content h3 {
+        font-size: 1rem;
+    }
 
-    margin-top: 5px;
-}
-
-.project-content h3 {
-    font-size: 1rem;
-}
-
-.project-content p {
-    font-size: 0.8rem;
-}
-
-
-
-
+    .project-content p {
+        font-size: 0.8rem;
+    }
 }
 
 
@@ -2147,7 +2441,9 @@ button:hover {
 }
 
 .anime-category.open .anime-row {
-    max-height: 1400px;
+    max-height: 5000px;
+
+    overflow: visible;
 
     margin-top: 30px;
 
