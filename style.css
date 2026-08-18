@@ -30,13 +30,37 @@ html {
 }
 
 :root {
-    --text-foreground: #f8edf2;
-    --text-soft: #f4e4ec;
-    --text-muted: #f0dfe7;
-    --text-deep-maroon: #f0b9c9;
-    --text-ash: #f1dfe7;
+    --text-foreground: #fff8fb;
+    --text-soft: #fdf1f7;
+    --text-muted: #f7dfe9;
+    --text-deep-maroon: #ffd4e4;
+    --text-ash: #f6e4ee;
     --accent-red: #b3003c;
     --accent-red-strong: #e0004f;
+}
+
+body[data-track-contrast="warm"] {
+    --text-foreground: #fff9fc;
+    --text-soft: #fff1f6;
+    --text-muted: #ffe1ee;
+    --text-deep-maroon: #ffcfe1;
+    --text-ash: #f8dfeb;
+}
+
+body[data-track-contrast="cool"] {
+    --text-foreground: #fffdfd;
+    --text-soft: #f0f3ff;
+    --text-muted: #e7e2ff;
+    --text-deep-maroon: #d9c9ff;
+    --text-ash: #ebdefd;
+}
+
+body[data-track-contrast="bright"] {
+    --text-foreground: #ffffff;
+    --text-soft: #fff7fb;
+    --text-muted: #fff0f7;
+    --text-deep-maroon: #ffdfe9;
+    --text-ash: #f9e7f0;
 }
 
 * {
@@ -595,7 +619,7 @@ button:hover {
 
 @media (max-width: 430px) {
     body {
-        font-size: 15px;
+        font-size: clamp(14px, 2.8vw, 15px);
     }
 
     .top-banner-wrap {
@@ -722,6 +746,157 @@ button:hover {
     .project-entry,
     .personal-entry {
         padding: 20px 16px;
+    }
+}
+
+@media (max-width: 480px) and (min-height: 700px),
+       (device-width: 390px) and (device-height: 844px),
+       (device-width: 412px) and (device-height: 915px),
+       (device-width: 430px) and (device-height: 932px),
+       (-webkit-min-device-pixel-ratio: 2) and (max-width: 480px) {
+    html, body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body {
+        font-size: clamp(14px, 3.1vw, 15.5px);
+    }
+
+    .top-banner-wrap {
+        width: calc(100% - 12px);
+        margin-top: 72px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 96px 16px 32px;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 11vw, 3.4rem);
+        letter-spacing: 0.2em;
+        line-height: 1.08;
+        margin-top: 18px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-top: 14px;
+        margin-bottom: 28px;
+    }
+
+    .identity {
+        max-width: 300px;
+        margin-top: 14px;
+    }
+
+    .tag {
+        letter-spacing: 0.26em;
+    }
+
+    .identity p {
+        font-size: 0.82rem;
+        line-height: 1.7;
+    }
+
+    button {
+        width: min(100%, 240px);
+        padding: 14px 18px;
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        border-radius: 999px;
+    }
+
+    .navbar {
+        height: 60px;
+        padding: 12px 14px;
+    }
+
+    .nav-logo {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        max-width: 150px;
+        line-height: 1.2;
+    }
+
+    #music-toggle {
+        width: 30px;
+        height: 30px;
+        margin-right: 6px;
+    }
+
+    #music-disc {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-toggle {
+        gap: 5px;
+        padding: 6px;
+    }
+
+    .menu-toggle span {
+        width: 20px;
+        height: 2.5px;
+    }
+
+    .dropdown-menu {
+        top: 60px;
+        width: min(100%, 100vw);
+        max-width: 100vw;
+    }
+
+    .menu-nav-section {
+        gap: 10px;
+        padding: 16px 12px 12px;
+    }
+
+    .menu-nav-link {
+        padding: 10px 12px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+    }
+
+    #archive,
+    #socials,
+    #games,
+    #projects,
+    #personal {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #archive h2,
+    #socials h2,
+    #games h2,
+    #projects h2,
+    #personal h2 {
+        font-size: clamp(1.8rem, 8vw, 2.9rem);
+        letter-spacing: 0.16em;
+    }
+
+    .archive-grid,
+    .social-links,
+    .project-list,
+    .personal-list {
+        gap: 16px;
+    }
+
+    .archive-card,
+    .social-card,
+    .project-entry,
+    .personal-entry {
+        padding: 20px 16px;
+    }
+
+    .music-links-menu {
+        padding: 10px 10px 12px;
+    }
+
+    .music-preview-label {
+        font-size: 8px;
+        letter-spacing: 0.14em;
     }
 }
 

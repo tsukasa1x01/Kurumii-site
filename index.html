@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
     <title>Kurumii</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -1485,6 +1485,8 @@ const activeTrackCount = 10;
     let musicEnabled = true;
     let userHasInteracted = false;
 
+    document.body.dataset.trackContrast = "bright";
+
 
     // =========================================
     // HAMBURGER MENU
@@ -1658,6 +1660,22 @@ if (
 
         const metadata =
             trackMetadata[currentTrack];
+
+        const contrastMap = {
+            0: "warm",
+            1: "bright",
+            2: "cool",
+            3: "bright",
+            4: "cool",
+            5: "warm",
+            6: "bright",
+            7: "cool",
+            8: "warm",
+            9: "bright"
+        };
+
+        document.body.dataset.trackContrast =
+            contrastMap[currentTrack] || "bright";
 
 
         currentTrackName.textContent =
