@@ -29,13 +29,23 @@ html {
     text-size-adjust: 100%;
 }
 
+:root {
+    --text-foreground: #f8edf2;
+    --text-soft: #f4e4ec;
+    --text-muted: #f0dfe7;
+    --text-deep-maroon: #f0b9c9;
+    --text-ash: #f1dfe7;
+    --accent-red: #b3003c;
+    --accent-red-strong: #e0004f;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     background: #030203;
-    color: #f2e9ed;
+    color: var(--text-foreground);
     font-family: Arial, sans-serif;
     text-align: center;
     font-size: 16px;
@@ -88,7 +98,7 @@ h1 {
 }
 
 p {
-    color: #c9aeb8;
+    color: var(--text-soft);
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -205,14 +215,14 @@ button:hover {
 }
 
 .tag {
-    color: #b3003c;
+    color: var(--accent-red);
     font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
 .identity p {
-    color: #8f737e;
+    color: var(--text-muted);
     font-size: 15px;
     margin-top: 12px;
     margin-bottom: 0;
@@ -232,7 +242,7 @@ button:hover {
 }
 
 #archive p {
-    color: #8f737e;
+    color: var(--text-muted);
     font-size: 16px;
 }
 
@@ -288,7 +298,7 @@ button:hover {
 }
 
 .archive-card p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 14px;
     margin: 0;
 }
@@ -322,7 +332,7 @@ button:hover {
 }
 
 #socials p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 16px;
 }
 
@@ -371,7 +381,7 @@ button:hover {
 }
 
 .social-card small {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 13px;
 }
 
@@ -439,7 +449,7 @@ button:hover {
 }
 
 .anime-card p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 14px;
     margin: 0;
 }
@@ -472,7 +482,7 @@ button:hover {
 }
 
 .nav-links a {
-    color: #8f737e;
+    color: var(--text-soft);
     text-decoration: none;
     font-size: 12px;
     letter-spacing: 2px;
@@ -817,7 +827,7 @@ button:hover {
 }
 
 .games-intro {
-    color: #8f737e;
+    color: var(--text-ash);
     margin-bottom: 50px;
 }
 
@@ -840,7 +850,7 @@ button:hover {
 }
 
 .projects-intro {
-    color: #8f737e;
+    color: var(--text-ash);
     margin-bottom: 50px;
 }
 
@@ -880,13 +890,13 @@ button:hover {
 }
 
 .project-card p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 14px;
     margin: 0 0 20px;
 }
 
 .project-card small {
-    color: #5c001f;
+    color: var(--text-deep-maroon);
     font-size: 10px;
     letter-spacing: 3px;
 }
@@ -921,7 +931,7 @@ button:hover {
 }
 
 .nav-links a {
-    color: #c9aeb8;
+    color: var(--text-soft);
     text-decoration: none;
     font-size: 12px;
     letter-spacing: 2px;
@@ -1096,7 +1106,7 @@ button:hover {
 
 .track-info p {
     margin: 4px 0 0;
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 11px;
     letter-spacing: 0.5px;
 }
@@ -1228,7 +1238,7 @@ button:hover {
 
 .track-title {
     font-size: 12px;
-    color: #c9aeb8;
+    color: var(--text-soft);
     flex: 1;
     letter-spacing: 0.5px;
     overflow: hidden;
@@ -1584,7 +1594,7 @@ button:hover {
 }
 
 .personal-intro {
-    color: #8f737e;
+    color: var(--text-ash);
     margin-bottom: 60px;
 }
 
@@ -1626,7 +1636,7 @@ button:hover {
 }
 
 .personal-content p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 14px;
     margin: 0;
 }
@@ -1650,7 +1660,7 @@ button:hover {
 }
 
 .song-info p {
-    color: #8f737e;
+    color: var(--text-ash);
     font-size: 13px;
     margin: 0;
 }
@@ -1691,9 +1701,9 @@ button:hover {
 
     margin: 0 auto 80px;
 
-    color: #8f737e;
+    color: var(--text-ash);
 
-    opacity: 0.65;
+    opacity: 0.92;
 
     text-align: center;
 }
