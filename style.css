@@ -25,6 +25,12 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -93,6 +99,7 @@ button {
     color: white;
     border: none;
     padding: 12px 24px;
+    min-height: 44px;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -573,6 +580,226 @@ button:hover {
     .social-card small {
         grid-column: 2;
         margin-top: 5px;
+    }
+}
+
+@media (max-width: 430px) {
+    body {
+        font-size: 15px;
+    }
+
+    .top-banner-wrap {
+        width: calc(100% - 18px);
+        margin-top: 78px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 112px 16px 36px;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 11vw, 3.4rem);
+        letter-spacing: 0.2em;
+        line-height: 1.08;
+        margin-top: 18px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-top: 14px;
+        margin-bottom: 28px;
+    }
+
+    .identity {
+        max-width: 300px;
+        margin-top: 14px;
+    }
+
+    .tag {
+        letter-spacing: 0.26em;
+    }
+
+    .identity p {
+        font-size: 0.82rem;
+        line-height: 1.7;
+    }
+
+    button {
+        width: min(100%, 240px);
+        padding: 14px 18px;
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        border-radius: 999px;
+    }
+
+    .navbar {
+        height: 60px;
+        padding: 12px 14px;
+    }
+
+    .nav-logo {
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        max-width: 150px;
+        line-height: 1.2;
+    }
+
+    #music-toggle {
+        width: 30px;
+        height: 30px;
+        margin-right: 6px;
+    }
+
+    #music-disc {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-toggle {
+        gap: 5px;
+        padding: 6px;
+    }
+
+    .menu-toggle span {
+        width: 20px;
+        height: 2.5px;
+    }
+
+    .dropdown-menu {
+        top: 60px;
+        max-width: 100%;
+    }
+
+    .menu-nav-section {
+        gap: 10px;
+        padding: 16px 12px 12px;
+    }
+
+    .menu-nav-link {
+        padding: 10px 12px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+    }
+
+    #archive,
+    #socials,
+    #games,
+    #projects,
+    #personal {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #archive h2,
+    #socials h2,
+    #games h2,
+    #projects h2,
+    #personal h2 {
+        font-size: clamp(1.8rem, 8vw, 2.9rem);
+        letter-spacing: 0.16em;
+    }
+
+    .archive-grid,
+    .social-links,
+    .project-list,
+    .personal-list {
+        gap: 16px;
+    }
+
+    .archive-card,
+    .social-card,
+    .project-entry,
+    .personal-entry {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 390px) {
+    .top-banner-wrap {
+        width: calc(100% - 14px);
+        margin-top: 72px;
+    }
+
+    .hero {
+        padding-top: 96px;
+    }
+
+    h1 {
+        letter-spacing: 0.16em;
+        font-size: clamp(2.2rem, 10vw, 3rem);
+    }
+
+    .nav-logo {
+        max-width: 130px;
+        font-size: 10px;
+    }
+
+    .menu-nav-link {
+        font-size: 9px;
+        letter-spacing: 0.14em;
+    }
+
+    .archive-card,
+    .social-card,
+    .project-entry,
+    .personal-entry {
+        padding: 18px 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar {
+        padding: 10px 12px;
+        height: 56px;
+    }
+
+    .nav-logo {
+        max-width: 120px;
+        letter-spacing: 0.14em;
+    }
+
+    .hero {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 90px;
+    }
+
+    h1 {
+        letter-spacing: 0.12em;
+        font-size: clamp(2rem, 9.5vw, 2.6rem);
+    }
+
+    p,
+    .identity p {
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    button {
+        width: 100%;
+        max-width: 220px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+    .hero {
+        min-height: auto;
+        padding-top: 86px;
+        padding-bottom: 28px;
+    }
+
+    .top-banner-wrap {
+        margin-top: 64px;
+    }
+
+    .dropdown-menu {
+        max-height: calc(100vh - 60px);
+    }
+
+    .menu-nav-section {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -3543,6 +3770,53 @@ button:hover {
         height: 152px;
     }
 
+}
+
+@media (max-width: 430px) {
+    .music-links-menu {
+        padding: 10px 10px 12px;
+    }
+
+    .music-preview {
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+    }
+
+    .music-preview-label {
+        margin-bottom: 8px;
+        font-size: 8px;
+        letter-spacing: 0.14em;
+    }
+
+    .youtube-embed {
+        border-radius: 8px;
+    }
+
+    .spotify-embed iframe {
+        height: 132px;
+    }
+}
+
+@media (max-width: 360px) {
+    .music-links-toggle {
+        min-height: 42px;
+        padding: 10px 12px;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+    }
+
+    .music-links-menu {
+        padding: 8px 8px 10px;
+    }
+
+    .music-preview-label {
+        font-size: 7px;
+        letter-spacing: 0.12em;
+    }
+
+    .spotify-embed iframe {
+        height: 120px;
+    }
 }
 
 
