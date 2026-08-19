@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100svh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1431,32 +1431,29 @@ button:hover {
         font-size: 15px;
     }
 
-    .navbar {
-        height: auto;
-        min-height: 64px;
-        padding: 12px 16px 0px;
-        flex-direction: column;
-        gap: 0;
-    }
+   .navbar {
+    height: 64px;
+    min-height: 64px;
+    padding: 0 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
 
-    .nav-logo {
-        font-size: 13px;
-        letter-spacing: 3px;
-        line-height: 1.2;
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
+   .nav-logo {
+    width: auto;
+    font-size: 13px;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-align: left;
+    padding: 0;
+    flex-shrink: 0;
+}
 
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 8px 12px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(179, 0, 60, 0.1);
-    }
+   .nav-links {
+    display: none;
+}
 
     .nav-links a {
         position: relative;
@@ -1466,24 +1463,29 @@ button:hover {
         line-height: 1.2;
     }
 
-    #music-toggle {
-        width: 28px;
-        height: 28px;
-        top: -1px;
-        transform: none;
-    }
+   #music-toggle {
+    width: 32px;
+    height: 32px;
+    top: 0;
+    transform: none;
+    flex-shrink: 0;
+}
 
-    #music-disc {
-        width: 28px;
-        height: 28px;
-    }
+#music-disc {
+    width: 32px;
+    height: 32px;
+}
 
     /* Hamburger on second row for mobile */
-    .menu-toggle {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 16px;
-    }
+   .menu-toggle {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin: 0;
+}
 
     .dropdown-menu {
         max-width: 100%;
@@ -1500,19 +1502,17 @@ button:hover {
     }
 
     .hero {
-        padding-top: 24px;
-        padding-bottom: 50px;
-    }
+    padding: clamp(20px, 5vw, 40px) 16px clamp(45px, 9vw, 80px);
+}
 
-    .top-banner-wrap {
-        width: min(100%, calc(100% - 16px));
-        margin-top: 96px;
-    }
+   .top-banner-wrap {
+    width: min(100%, calc(100% - 20px));
+    margin-top: clamp(32px, 8vw, 60px);
+}
 
     .top-banner-image {
-        height: 120px;
-    }
-
+    height: clamp(110px, 30vw, 180px);
+}
     .song-info {
         flex-direction: column;
         align-items: flex-start;
@@ -1593,10 +1593,11 @@ button:hover {
     }
 
     h1 {
-        font-size: clamp(2.6rem, 11vw, 3.5rem);
-        letter-spacing: 5px;
+        font-size: clamp(30px, 8vw, 48px);
+        letter-spacing: clamp(3px, 1vw, 7px);
+
         margin-top: 120px;
-        line-height: 1.1;
+       line-height: 1.05;
     }
 
     p {
@@ -4004,7 +4005,20 @@ button:hover {
     }
 }
 
+@media (max-width: 420px) {
+    .hero {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 
+    .top-banner-wrap {
+        width: calc(100% - 12px);
+    }
+
+    .top-banner-image {
+        height: clamp(100px, 29vw, 150px);
+    }
+}
 
 
 
