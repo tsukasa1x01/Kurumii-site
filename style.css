@@ -3428,9 +3428,11 @@ button:hover {
 .project-meta {
     margin-bottom: 10px;
 
-    color: #5c001f;
+    color: var(--text-muted);
 
     font-size: 0.65rem;
+
+    font-weight: 600;
 
     letter-spacing: 0.25em;
 }
@@ -3452,9 +3454,11 @@ button:hover {
 
     margin: 0;
 
-    color: #8f737e;
+    color: var(--text-ash);
 
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+
+    font-weight: 500;
 
     line-height: 1.7;
 }
@@ -3469,7 +3473,7 @@ button:hover {
 
     gap: 12px;
 
-    color: #8f737e;
+    color: var(--text-soft);
 
     font-size: 0.65rem;
 
@@ -3477,7 +3481,7 @@ button:hover {
 
     white-space: nowrap;
 
-    opacity: 0.6;
+    opacity: 0.85;
 
     transition:
         opacity 0.3s ease,
@@ -3547,6 +3551,112 @@ button:hover {
 @media (max-width: 768px) {
     .character-entry {
         flex-direction: column !important;
+    }
+}
+
+/* =========================================
+   HIGH-DENSITY PORTRAIT PHONES
+========================================= */
+
+@media (max-width: 480px) and (orientation: portrait) {
+    body {
+        font-size: 15px;
+    }
+
+    .top-banner-wrap {
+        width: calc(100% - 24px);
+        margin-top: 68px;
+    }
+
+    .top-banner-image {
+        height: clamp(120px, 30vw, 170px);
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 72px 16px 52px;
+    }
+
+    h1 {
+        font-size: clamp(2.35rem, 10vw, 3rem);
+        letter-spacing: 0.16em;
+        margin-top: 12px;
+        margin-bottom: 14px;
+    }
+
+    .hero > p {
+        font-size: 1rem;
+        margin: 10px 0 24px;
+    }
+
+    #archive,
+    #socials,
+    #anime,
+    #games,
+    #projects,
+    #personal,
+    #characters {
+        min-height: auto;
+        padding: 64px 16px;
+    }
+
+    #archive h2,
+    #socials h2,
+    #anime h2,
+    #games h2,
+    #projects h2,
+    #personal h2,
+    #characters h2 {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+        letter-spacing: 0.12em;
+        line-height: 1.15;
+    }
+
+    .archive-intro,
+    .social-intro,
+    .anime-intro,
+    .projects-intro,
+    .personal-intro,
+    .characters-intro {
+        margin-bottom: 32px;
+    }
+
+    .archive-grid,
+    .anime-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .archive-card,
+    .anime-card {
+        padding: 20px 16px;
+    }
+
+    .project-list {
+        margin-top: 32px;
+    }
+
+    .project-entry {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 24px 4px;
+        align-items: start;
+    }
+
+    .project-content h3 {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .project-content p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .project-status {
+        grid-column: 2;
+        margin-top: 2px;
+        font-size: 0.58rem;
     }
 }
 
