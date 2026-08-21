@@ -4414,7 +4414,64 @@ button:hover {
 }
 
 
+/* =========================================================
+   FAVORITE SONG — MOBILE LAYOUT
+   ========================================================= */
 
+@media (max-width: 600px) {
+
+    .song-entry .song-info {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .song-entry .song-details {
+        width: 100%;
+    }
+
+    .song-entry .music-links-dropdown {
+        width: 100%;
+    }
+
+    .song-entry .music-links-toggle {
+        width: 100%;
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .song-entry .music-links-menu {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .song-entry .music-preview {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .song-entry .youtube-embed,
+    .song-entry .spotify-embed {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .song-entry .youtube-embed iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        display: block;
+    }
+
+    .song-entry .spotify-embed iframe {
+        width: 100%;
+        height: 352px;
+        display: block;
+    }
+
+}
 
 
 
